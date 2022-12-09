@@ -11,11 +11,11 @@ internal class Puzzle
         });
 
         var front = new Snake();
-        var link = front;
+        var tail = front;
         for (var i = 0; i < 8; i++)
         {
-            link.Tail = new Snake();
-            link = link.Tail;
+            tail.Tail = new Snake();
+            tail = tail.Tail;
         }
 
         foreach (var move in input)
@@ -61,13 +61,6 @@ internal class Puzzle
             }
         }
 
-        var unique = new List<Point>();
-
-        foreach (var m in link.TailMoves.Where(m => !unique.Any(x => x.X == m.X && x.Y == m.Y)))
-        {
-            unique.Add(m);
-        }
-
-        return unique.Count;
+        return tail.TailMoves.Count;
     }
 }
