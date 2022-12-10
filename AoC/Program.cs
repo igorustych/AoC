@@ -1,3 +1,1 @@
-﻿using AoC._2022._9;
-
-Console.WriteLine(Puzzle.Run());
+﻿AoC._2022._10.Puzzle.Run();
